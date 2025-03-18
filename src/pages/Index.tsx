@@ -19,7 +19,7 @@ const Index = () => {
     location: "Dubai, United Arab Emirates",
     experience: "10+ Years in Marketing",
     education: "MBA - Marketing & B.Tech Honors",
-    image: "public/lovable-uploads/a444f098-4847-43a0-b9ef-dd0375709b93.png"
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1000"
   };
   
   const experiences = [

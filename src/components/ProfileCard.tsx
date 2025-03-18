@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { Mail, Phone, MapPin, Calendar, Award, Linkedin } from 'lucide-react';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 interface ProfileCardProps {
   name: string;
@@ -23,18 +25,27 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
   education,
   image
 }) => {
+  const initials = name
+    .split(' ')
+    .map(part => part[0])
+    .join('');
+
   return (
-    <div className="netflix-card w-full max-w-md mx-auto overflow-hidden flex flex-col">
-      <div className="relative aspect-[3/4] overflow-hidden">
-        <img 
-          src={image} 
-          alt={name} 
-          className="w-full h-full object-cover object-center transform transition-transform duration-500 hover:scale-105"
-        />
-        <div className="netflix-gradient pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-full p-6">
-          <h3 className="text-3xl font-bold mb-1">{name}</h3>
-          <p className="text-netflix-red font-medium mb-4">{title}</p>
+    <div className="netflix-card w-full max-w-md mx-auto overflow-hidden flex flex-col rounded-lg shadow-xl">
+      <div className="relative">
+        <AspectRatio ratio={16/9}>
+          <div className="w-full h-full bg-gradient-to-br from-netflix-red/90 to-netflix-dark flex items-center justify-center">
+            <Avatar className="h-32 w-32 border-4 border-white shadow-lg">
+              <AvatarImage src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1000" alt={name} />
+              <AvatarFallback className="text-3xl font-bold bg-netflix-red text-white">
+                {initials}
+              </AvatarFallback>
+            </Avatar>
+          </div>
+        </AspectRatio>
+        <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent">
+          <h3 className="text-3xl font-bold text-white">{name}</h3>
+          <p className="text-netflix-red font-medium mb-2">{title}</p>
         </div>
       </div>
       
