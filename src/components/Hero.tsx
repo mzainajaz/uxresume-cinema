@@ -27,20 +27,20 @@ const Hero = () => {
       <div className="relative h-full flex flex-col justify-center px-4 md:px-16 max-w-6xl mx-auto">
         <div className={`transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="inline-block px-3 py-1 bg-netflix-red rounded text-sm font-medium mb-4 animate-pulse-soft">
-            Full Stack Developer
+            Head of Performance Marketing
           </span>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-3 text-netflix-light">
-            Your Name
+            Zain Mir
           </h1>
           
           <p className="text-xl md:text-2xl text-netflix-light mb-2 font-medium">
-            Creating digital experiences that matter
+            Driving measurable growth through strategic marketing
           </p>
           
           <p className="text-netflix-gray max-w-2xl mb-8 text-lg">
-            With expertise in building modern web applications and user interfaces, 
-            I specialize in creating scalable, elegant solutions that solve real-world problems.
+            With over a decade of experience in digital marketing, I specialize in designing data-driven campaigns 
+            that align with brand goals and deliver exceptional results across multiple channels.
           </p>
           
           <div className="flex flex-wrap gap-4">

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Mail, Phone, MapPin, Calendar, Award } from 'lucide-react';
+import { Mail, Phone, MapPin, Calendar, Award, Linkedin } from 'lucide-react';
 
 interface ProfileCardProps {
   name: string;
@@ -59,6 +59,12 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
           <div className="flex items-center">
             <Award size={18} className="text-netflix-red mr-3" />
             <span>{education}</span>
+          </div>
+          <div className="flex items-center">
+            <Linkedin size={18} className="text-netflix-red mr-3" />
+            <a href="https://www.linkedin.com/in/zain-mir/" target="_blank" rel="noopener noreferrer" className="hover:text-netflix-red transition-colors">
+              View LinkedIn Profile
+            </a>
           </div>
         </div>
       </div>

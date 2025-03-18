@@ -10,137 +10,182 @@ import ProjectCard from '@/components/ProjectCard';
 import Footer from '@/components/Footer';
 
 const Index = () => {
-  // Sample data for the resume - replace with your own
+  // Profile data for Zain Mir
   const profile = {
-    name: "Your Name",
-    title: "Full Stack Developer",
-    email: "your.email@example.com",
-    phone: "+1 (123) 456-7890",
-    location: "San Francisco, CA",
-    experience: "5+ Years Experience",
-    education: "B.S. Computer Science",
-    image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1964"
+    name: "Zain Mir",
+    title: "Head of Performance Marketing",
+    email: "m.zainajaz@gmail.com",
+    phone: "+971554082897",
+    location: "Dubai, United Arab Emirates",
+    experience: "10+ Years in Marketing",
+    education: "MBA - Marketing & B.Tech Honors",
+    image: "public/lovable-uploads/a444f098-4847-43a0-b9ef-dd0375709b93.png"
   };
   
   const experiences = [
     {
-      company: "Tech Company A",
-      position: "Senior Developer",
-      period: "Jan 2020 - Present",
+      company: "Creo Global",
+      position: "Head of Performance Marketing",
+      period: "Mar 2024 - Present",
       description: [
-        "Led the development of a complex web application that increased user engagement by 40%.",
-        "Designed and implemented RESTful APIs with Node.js and Express.",
-        "Mentored junior developers and conducted code reviews.",
-        "Optimized application performance, reducing load time by 30%."
+        "As the Head of Performance Marketing, I bring a proven track record of strategic leadership and a deep, comprehensive understanding of digital marketing to drive measurable growth.",
+        "Successfully led cross-functional teams to achieve high-impact results and exceed business objectives.",
+        "Specialize in designing data-driven campaigns that align with brand goals.",
+        "Leverage multi-channel marketing expertise spanning paid search, social media, programmatic advertising, and SEO.",
+        "Translate complex data into actionable insights resulting in increased ROI and enhanced customer acquisition."
       ],
       logo: "https://images.unsplash.com/photo-1496065187959-7f07b8353c55?q=80&w=2070",
       companyUrl: "https://example.com"
     },
     {
-      company: "Agency B",
-      position: "Front-end Developer",
-      period: "Mar 2018 - Dec 2019",
+      company: "Meydan Free Zone",
+      position: "Digital Marketing Manager",
+      period: "Jan 2022 - Dec 2024",
       description: [
-        "Developed responsive interfaces for multiple client projects using React and Vue.js.",
-        "Collaborated with designers to implement pixel-perfect UIs.",
-        "Integrated third-party APIs and services.",
-        "Improved site SEO and accessibility."
+        "Led the management and growth of 360-degree digital marketing and transformation efforts.",
+        "Developed the road map and spearheaded the implementation of an in-house chat bot powered by GPT-4 and custom model on replit.",
+        "Achieved a 3X increase in qualified lead count within one year by strategically leveraging first-party data via CRM and CDP.",
+        "Successfully implemented a CDP to enhance user tracking, attribution, and Pfmax-based conversions.",
+        "Developed process workflows for the WhatsApp Business API, streamlining multiple processes."
       ],
       logo: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070",
       companyUrl: "https://example.com"
     },
     {
-      company: "Startup C",
-      position: "Full Stack Developer",
-      period: "Jun 2016 - Feb 2018",
+      company: "Home of Performance [HOP]",
+      position: "Head of Performance Marketing",
+      period: "Aug 2021 - Dec 2021",
       description: [
-        "Built a comprehensive SaaS platform from the ground up.",
-        "Implemented payment processing and user authentication.",
-        "Developed containerized microservices architecture.",
-        "Participated in agile development process, daily standups, and sprint planning."
+        "Led and managed the performance marketing team at the agency, overseeing growth and development.",
+        "Strategized campaign strategies for e-commerce clients, delivering incremental ROAS for luxury clients and FMCG brands including Tavola, Nicoli, Washmen, and FreshExpress.",
+        "Achieved Preferred Marketing Partner status with Facebook and Google by scaling agency business.",
+        "Implemented automated reports with advanced dashboards to streamline reporting processes.",
+        "Received the Best Localized Search Award in MENA for The Healthy Home."
       ],
       logo: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070",
+      companyUrl: "https://example.com"
+    },
+    {
+      company: "Home of Performance [HOP]",
+      position: "Digital Account Manager",
+      period: "Dec 2020 - Aug 2021",
+      description: [
+        "Managed and cultivated relationships with key clients, resulting in a 20% increase in client retention rates.",
+        "Developed and implemented digital marketing strategies driving a 30% increase in online engagement.",
+        "Increased user acquisition for Flog App by 150%, Alsaree3 Food Delivery App by 53%, and a car rental service in the UAE by 400%.",
+        "Played a key role in achieving 300% growth (150k MAU) for a new entrant in the grocery segment market.",
+        "Conducted regular performance analysis and optimization of digital advertising campaigns."
+      ],
+      logo: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070",
+      companyUrl: "https://example.com"
+    },
+    {
+      company: "Lqvd Asia",
+      position: "Media Manager",
+      period: "Feb 2020 - Dec 2020",
+      description: [
+        "Directed SEM, app, and paid social campaigns across the agency.",
+        "Launched IPL awareness and performance campaigns for Royal Challengers Bangalore (RCB) in partnership with Optimum Nutrition.",
+        "Spearheaded brand and performance marketing for 'Academy for Digital Marketing,' a new entrant in the Ed-Tech space.",
+        "Planned and executed paid marketing campaigns for TSSS, Glanbia Optimum Nutrition, ADMC, and JIVA Ayurveda.",
+        "Automated all reports across the agency, significantly increasing work efficiency."
+      ],
+      logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015",
+      companyUrl: "https://example.com"
+    },
+    {
+      company: "Publicis Media - Performics",
+      position: "Assistant Manager",
+      period: "Jun 2017 - Feb 2020",
+      description: [
+        "Scaled Facebook app campaigns for Wynk Music to align with Google UAC campaigns, enhancing installs delivery and stream quality.",
+        "Launched paid media acquisition campaigns for Airtel Global Calling App, expanding business in the ME and Europe.",
+        "Managed performance marketing for Uber India App's rides business through Facebook campaigns.",
+        "Achieved a 30% increase in streams on Facebook app campaigns through A/B testing with different songs for each age group.",
+        "Successfully launched B2B business acquisition campaigns in Africa for NIIT Ltd using LinkedIn."
+      ],
+      logo: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070",
       companyUrl: "https://example.com"
     }
   ];
   
   const skills = [
     {
-      title: "React",
+      title: "Marketing Strategy",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+      level: 5,
+      description: "Expert in developing comprehensive marketing strategies that drive business growth. Specializing in aligning marketing initiatives with broader business objectives.",
+      tags: ["Brand Strategy", "Market Research", "Campaign Planning", "Growth Marketing"]
+    },
+    {
+      title: "Digital Marketing",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
       level: 5,
-      description: "Advanced proficiency in React, including hooks, context API, and state management solutions like Redux and Zustand.",
-      tags: ["Hooks", "Context API", "Redux", "Next.js"]
+      description: "Comprehensive expertise in all aspects of digital marketing including PPC, SEM, social media advertising, and app marketing campaigns.",
+      tags: ["PPC", "SEM", "App Marketing", "Social Media Ads"]
     },
     {
-      title: "Node.js",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-      level: 4,
-      description: "Strong experience building RESTful APIs, middleware, and server-side applications with Express.",
-      tags: ["Express", "REST API", "Middleware", "Authentication"]
-    },
-    {
-      title: "TypeScript",
+      title: "Performance Marketing",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-      level: 4,
-      description: "Extensive use of TypeScript for type-safe applications, interfaces, and generics.",
-      tags: ["Types", "Interfaces", "Generics", "Type Guards"]
-    },
-    {
-      title: "CSS/SCSS",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
       level: 5,
-      description: "Expert in CSS, SCSS, and modern CSS frameworks like Tailwind CSS. Strong focus on responsive design and animations.",
-      tags: ["Tailwind", "Animations", "Flexbox", "Grid"]
+      description: "Skilled in driving measurable results through data-driven performance marketing campaigns across multiple channels.",
+      tags: ["ROI Optimization", "Conversion Rate", "Attribution", "Analytics"]
     },
     {
-      title: "MongoDB",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+      title: "E-commerce Marketing",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
       level: 4,
-      description: "Skilled in MongoDB database design, queries, aggregation pipeline, and integration with Node.js applications.",
-      tags: ["NoSQL", "Mongoose", "Aggregation", "Atlas"]
+      description: "Experience developing and implementing e-commerce marketing strategies for luxury and FMCG brands, driving incremental ROAS.",
+      tags: ["ROAS", "Customer Acquisition", "Retention", "Shopping Campaigns"]
     },
     {
-      title: "AWS",
+      title: "CRM & CDP Implementation",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+      level: 5,
+      description: "Expert in implementing and leveraging Customer Relationship Management and Customer Data Platform systems to enhance marketing efforts.",
+      tags: ["First-Party Data", "User Segmentation", "Lead Management", "Customer Journey"]
+    },
+    {
+      title: "Project Management",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg",
-      level: 3,
-      description: "Experience with various AWS services including EC2, S3, Lambda, and CloudFront for scalable cloud applications.",
-      tags: ["EC2", "S3", "Lambda", "CloudFront"]
+      level: 5,
+      description: "Strong project management skills with experience leading cross-functional teams and managing complex marketing initiatives.",
+      tags: ["Team Leadership", "Process Optimization", "Resource Allocation", "Stakeholder Management"]
     }
   ];
   
   const projects = [
     {
-      title: "E-commerce Platform",
-      description: "A full-featured e-commerce platform with product listings, cart functionality, payment processing, and admin dashboard.",
+      title: "ChatBot Implementation",
+      description: "Developed and implemented an in-house chat bot powered by GPT-4 and custom model on replit for Meydan Free Zone, streamlining customer interactions.",
       image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2070",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+      technologies: ["GPT-4", "Custom ML Model", "Replit", "API Integration"],
       liveUrl: "https://example.com",
-      githubUrl: "https://github.com/yourusername/project"
+      githubUrl: "https://github.com/example/project"
     },
     {
-      title: "Social Media Dashboard",
-      description: "Analytics dashboard for social media managers with real-time data visualization and reporting tools.",
+      title: "WhatsApp Business API Workflow",
+      description: "Created process workflows for WhatsApp Business API to streamline pre-qualification, post-qualification, sales, and after-sales service processes.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015",
-      technologies: ["Vue.js", "D3.js", "Firebase", "Express"],
+      technologies: ["WhatsApp Business API", "Process Automation", "CRM Integration", "User Journey Mapping"],
       liveUrl: "https://example.com",
-      githubUrl: "https://github.com/yourusername/project"
+      githubUrl: "https://github.com/example/project"
     },
     {
-      title: "Fitness Tracking App",
-      description: "Mobile-first application for tracking workouts, nutrition, and fitness goals with progress visualization.",
+      title: "CDP Implementation",
+      description: "Successfully implemented a Customer Data Platform to enhance user tracking, attribution, and Pfmax-based conversions, improving user segmentation.",
       image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070",
-      technologies: ["React Native", "GraphQL", "PostgreSQL", "JWT"],
+      technologies: ["CDP", "Data Analytics", "User Segmentation", "Attribution Modeling"],
       liveUrl: "https://example.com",
-      githubUrl: "https://github.com/yourusername/project"
+      githubUrl: "https://github.com/example/project"
     },
     {
-      title: "Task Management System",
-      description: "Collaborative project management tool with real-time updates, task assignment, and progress tracking.",
+      title: "Automated Reporting System",
+      description: "Designed and implemented automated reporting systems with advanced dashboards to streamline reporting processes and improve team efficiency.",
       image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070",
-      technologies: ["Angular", "NestJS", "Socket.io", "MySQL"],
+      technologies: ["Data Visualization", "Automation", "Dashboard Design", "KPI Tracking"],
       liveUrl: "https://example.com",
-      githubUrl: "https://github.com/yourusername/project"
+      githubUrl: "https://github.com/example/project"
     }
   ];
 
@@ -164,20 +209,16 @@ const Index = () => {
               </span>
               <h2 className="netflix-title mb-4">My Story</h2>
               <p className="text-netflix-light/80 mb-6">
-                I'm a passionate full stack developer with expertise in creating modern, 
-                responsive web applications. With a strong foundation in both front-end and 
-                back-end technologies, I strive to build elegant solutions that solve 
-                real-world problems.
+                With over a decade of experience in marketing, I specialize in app marketing, e-commerce, PPC, strategy, market
+                research, social ads, content strategy, CRM, CDP, and workflow automation.
               </p>
               <p className="text-netflix-light/80 mb-6">
-                My journey in tech began at [Your University], where I earned my degree in 
-                Computer Science. Since then, I've worked with various companies and clients, 
-                continuously expanding my skills and embracing new technologies.
+                I have successfully collaborated with more than 100 clients, developing tailored marketing strategies that drive substantial growth.
+                My expertise spans across multiple industries and markets including GCC, UK, Spain, and US.
               </p>
               <p className="text-netflix-light/80">
-                When I'm not coding, you can find me exploring new hiking trails, experimenting 
-                with photography, or diving into sci-fi novels. I'm always open to new opportunities 
-                and collaborations.
+                When I'm not working on marketing strategies, you can find me exploring AI Automation, practicing Calligraphy, 
+                working on Video Editing projects, or capturing moments through Photography.
               </p>
             </div>
             <div className="flex justify-center items-center">

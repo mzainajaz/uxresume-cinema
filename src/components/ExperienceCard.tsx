@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Calendar, Building, ExternalLink } from 'lucide-react';
+import { Calendar, Building, ExternalLink, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ExperienceCardProps {
@@ -74,9 +74,15 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
           )}
         </div>
         
-        <div className="flex items-center text-netflix-gray mb-3">
-          <Calendar size={14} className="mr-1" />
-          <span className="text-sm">{period}</span>
+        <div className="flex items-center justify-between text-netflix-gray mb-3">
+          <div className="flex items-center">
+            <Calendar size={14} className="mr-1" />
+            <span className="text-sm">{period}</span>
+          </div>
+          <div className="flex items-center">
+            <MapPin size={14} className="mr-1" />
+            <span className="text-sm">Dubai</span>
+          </div>
         </div>
         
         <p className="text-netflix-light/80 line-clamp-2">{description[0]}</p>
