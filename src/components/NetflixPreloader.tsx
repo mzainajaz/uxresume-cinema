@@ -42,7 +42,7 @@ const NetflixPreloader: React.FC<NetflixPreloaderProps> = ({ onFinished }) => {
       {/* Audio element for Netflix sound */}
       <audio 
         ref={audioRef} 
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/a1dc92ca-091d-4ca9-a05b-8cd44bbfce6a/f78a89c5-5d94-4d11-a1f1-d49505dddd45/US-en-20191230-popsignuptwoweeks-perspective_alpha_website_small.mp4:440:8.45,https://assets.nflxext.com/ffe/siteui/vlv3/a1dc92ca-091d-4ca9-a05b-8cd44bbfce6a/f78a89c5-5d94-4d11-a1f1-d49505dddd45/US-en-20191230-popsignuptwoweeks-perspective_alpha_website_small.mp4:1486:3"
+        src="https://cdn.plyr.io/static/demo/Kishi_Bashi_-_It_All_Began_With_a_Burst.mp3"
         preload="auto"
       />
       
