@@ -10,39 +10,47 @@ const NetflixPreloader: React.FC<NetflixPreloaderProps> = ({ onFinished }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Create and load audio element in the useEffect to improve compatibility
-    const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/212/212-preview.mp3');
+    // Create audio element programmatically
+    const audio = new Audio('https://www.soundjay.com/mechanical/sounds/bike-horn-1.mp3');
     audioRef.current = audio;
     
     // Preload the audio
     audio.load();
     
-    // Play the sound effect when component mounts
+    // Set up animation timing
+    const animationDuration = 3500; // Total animation duration
+    const soundDelay = 1800; // When the sound should start playing (sync with visual)
+    const fadeOutDelay = animationDuration - 500; // When to start fading out
+    
+    // Play the sound effect when animation reaches correct point
     const playSound = () => {
       console.log("Attempting to play sound");
-      audioRef.current?.play()
-        .then(() => console.log("Audio playback started successfully"))
-        .catch(err => {
-          console.log("Audio playback prevented:", err);
-          // Continue with animation even if audio fails
-        });
+      if (audioRef.current) {
+        audioRef.current.volume = 0.7; // Slightly lower volume
+        audioRef.current.play()
+          .then(() => console.log("Audio playback started successfully"))
+          .catch(err => {
+            console.log("Audio playback prevented:", err);
+            // Continue with animation even if audio fails
+          });
+      }
     };
 
-    // Set a timeout to play sound in sync with animation
-    const soundTimer = setTimeout(playSound, 2300);
-    
     // Start the animation sequence
-    const animationTimer = setTimeout(() => {
+    const soundTimer = setTimeout(playSound, soundDelay);
+    const fadeOutTimer = setTimeout(() => {
       setAnimationComplete(true);
-      // Call onFinished after the animation fades out
-      setTimeout(() => {
-        onFinished();
-      }, 1000); // Wait for fade out animation
-    }, 4000); // Total duration of the animation
+    }, fadeOutDelay);
+    
+    // Complete the animation and call onFinished
+    const completionTimer = setTimeout(() => {
+      onFinished();
+    }, animationDuration);
 
     return () => {
       clearTimeout(soundTimer);
-      clearTimeout(animationTimer);
+      clearTimeout(fadeOutTimer);
+      clearTimeout(completionTimer);
       // Clean up audio
       if (audioRef.current) {
         audioRef.current.pause();
@@ -57,31 +65,26 @@ const NetflixPreloader: React.FC<NetflixPreloaderProps> = ({ onFinished }) => {
         animationComplete ? 'opacity-0' : 'opacity-100'
       }`}
     >
-      {/* Netflix N-shaped container */}
-      <div className="relative w-full max-w-md px-8">
-        <div className="w-full h-24 md:h-32 relative overflow-hidden flex justify-center items-center">
-          {/* Center line of the N */}
-          <div className="absolute w-6 md:w-8 h-full bg-netflix-red transform skew-x-12 z-10 
-                         animate-[netflix-n_3s_ease-in-out_forwards]"></div>
-          
-          {/* Left line of the N */}
-          <div className="absolute left-0 md:left-8 w-6 md:w-8 h-full bg-netflix-red z-10
-                         animate-[netflix-left_3s_ease-in-out_forwards]"></div>
-          
-          {/* Right line of the N */}
-          <div className="absolute right-0 md:right-8 w-6 md:w-8 h-full bg-netflix-red z-10
-                         animate-[netflix-right_3s_ease-in-out_forwards]"></div>
-          
-          {/* Name text appearing after N animation */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 
-                         animate-[netflix-text_3s_ease-in-out_forwards]">
-            <h1 className="text-4xl md:text-5xl font-bold text-netflix-red tracking-wider">ZAIN MIR</h1>
+      {/* Netflix Logo Container */}
+      <div className="relative w-64 h-32">
+        {/* Netflix Logo - The N */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative h-full w-16 overflow-visible">
+            {/* Left bar of N */}
+            <div className="absolute left-0 w-5 h-full bg-netflix-red animate-[netflix-left_3s_ease-in-out_forwards]"></div>
+            
+            {/* Middle bar of N */}
+            <div className="absolute left-5 w-5 h-full bg-netflix-red transform origin-left skew-x-12 animate-[netflix-n_3s_ease-in-out_forwards]"></div>
+            
+            {/* Right bar of N */}
+            <div className="absolute right-0 w-5 h-full bg-netflix-red animate-[netflix-right_3s_ease-in-out_forwards]"></div>
           </div>
         </div>
         
-        {/* Sound effect animation (the "TUDUM" sound visual) */}
-        <div className="w-full h-2 bg-netflix-red mt-4 transform scale-x-0 origin-left
-                       animate-[netflix-sound_0.5s_ease-in-out_2.5s_forwards]"></div>
+        {/* Sound Wave Animation (appears when the TUDUM sound plays) */}
+        <div className="absolute bottom-0 left-0 right-0 flex justify-center">
+          <div className="w-32 h-2 bg-netflix-red scale-x-0 origin-center mt-6 animate-[netflix-sound_0.5s_ease-in-out_1.8s_forwards]"></div>
+        </div>
       </div>
     </div>
   );

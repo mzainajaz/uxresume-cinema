@@ -101,24 +101,24 @@ export default {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0.8' }
 				},
-				// Netflix preloader animations
+				// Netflix preloader animations - improved
 				'netflix-n': {
-					'0%': { transform: 'skew-x(12deg) scale(0)', opacity: '0' },
-					'30%': { transform: 'skew-x(12deg) scale(1)', opacity: '1' },
-					'70%': { transform: 'skew-x(12deg) scale(1)', opacity: '1' },
-					'100%': { transform: 'skew-x(12deg) scale(1.5)', opacity: '0' }
+					'0%': { transform: 'skew-x(12deg) scaleY(0)', opacity: '0' },
+					'25%': { transform: 'skew-x(12deg) scaleY(1)', opacity: '1' },
+					'85%': { transform: 'skew-x(12deg) scaleY(1)', opacity: '1' },
+					'100%': { transform: 'skew-x(12deg) scaleY(1.2)', opacity: '0' }
 				},
 				'netflix-left': {
-					'0%': { transform: 'scale(0)', opacity: '0' },
-					'30%': { transform: 'scale(1)', opacity: '1' },
-					'70%': { transform: 'scale(1)', opacity: '1' },
-					'100%': { transform: 'scale(1.5)', opacity: '0' }
+					'0%': { transform: 'scaleY(0)', opacity: '0' },
+					'25%': { transform: 'scaleY(1)', opacity: '1' },
+					'85%': { transform: 'scaleY(1)', opacity: '1' },
+					'100%': { transform: 'scaleY(1.2)', opacity: '0' }
 				},
 				'netflix-right': {
-					'0%': { transform: 'scale(0)', opacity: '0' },
-					'30%': { transform: 'scale(1)', opacity: '1' },
-					'70%': { transform: 'scale(1)', opacity: '1' },
-					'100%': { transform: 'scale(1.5)', opacity: '0' }
+					'0%': { transform: 'scaleY(0)', opacity: '0' },
+					'25%': { transform: 'scaleY(1)', opacity: '1' },
+					'85%': { transform: 'scaleY(1)', opacity: '1' },
+					'100%': { transform: 'scaleY(1.2)', opacity: '0' }
 				},
 				'netflix-text': {
 					'0%': { opacity: '0', transform: 'scale(0.8)' },
@@ -128,7 +128,8 @@ export default {
 				},
 				'netflix-sound': {
 					'0%': { transform: 'scaleX(0)' },
-					'100%': { transform: 'scaleX(1)' }
+					'50%': { transform: 'scaleX(1)' },
+					'100%': { transform: 'scaleX(0)' }
 				}
 			},
 			animation: {
