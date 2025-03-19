@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 interface NetflixPreloaderProps {
   onFinished: () => void;
@@ -7,8 +7,20 @@ interface NetflixPreloaderProps {
 
 const NetflixPreloader: React.FC<NetflixPreloaderProps> = ({ onFinished }) => {
   const [animationComplete, setAnimationComplete] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
+    // Play the sound effect when component mounts
+    if (audioRef.current) {
+      // Small delay to ensure proper timing with animation
+      setTimeout(() => {
+        audioRef.current?.play().catch(err => {
+          console.log("Audio playback prevented:", err);
+          // Continue with animation even if audio fails
+        });
+      }, 2300); // Time before the sound plays
+    }
+
     // Start the animation sequence
     const timer = setTimeout(() => {
       setAnimationComplete(true);
@@ -27,6 +39,13 @@ const NetflixPreloader: React.FC<NetflixPreloaderProps> = ({ onFinished }) => {
         animationComplete ? 'opacity-0' : 'opacity-100'
       }`}
     >
+      {/* Audio element for Netflix sound */}
+      <audio 
+        ref={audioRef} 
+        src="https://assets.nflxext.com/ffe/siteui/vlv3/a1dc92ca-091d-4ca9-a05b-8cd44bbfce6a/f78a89c5-5d94-4d11-a1f1-d49505dddd45/US-en-20191230-popsignuptwoweeks-perspective_alpha_website_small.mp4:440:8.45,https://assets.nflxext.com/ffe/siteui/vlv3/a1dc92ca-091d-4ca9-a05b-8cd44bbfce6a/f78a89c5-5d94-4d11-a1f1-d49505dddd45/US-en-20191230-popsignuptwoweeks-perspective_alpha_website_small.mp4:1486:3"
+        preload="auto"
+      />
+      
       <div className="relative w-full max-w-md px-8">
         {/* Netflix N-shaped container */}
         <div className="w-full h-24 md:h-32 relative overflow-hidden flex justify-center items-center">
