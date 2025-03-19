@@ -10,19 +10,29 @@ const NetflixPreloader: React.FC<NetflixPreloaderProps> = ({ onFinished }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
+    // Create and load audio element in the useEffect to improve compatibility
+    const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/212/212-preview.mp3');
+    audioRef.current = audio;
+    
+    // Preload the audio
+    audio.load();
+    
     // Play the sound effect when component mounts
-    if (audioRef.current) {
-      // Small delay to ensure proper timing with animation
-      setTimeout(() => {
-        audioRef.current?.play().catch(err => {
+    const playSound = () => {
+      console.log("Attempting to play sound");
+      audioRef.current?.play()
+        .then(() => console.log("Audio playback started successfully"))
+        .catch(err => {
           console.log("Audio playback prevented:", err);
           // Continue with animation even if audio fails
         });
-      }, 2300); // Time before the sound plays
-    }
+    };
 
+    // Set a timeout to play sound in sync with animation
+    const soundTimer = setTimeout(playSound, 2300);
+    
     // Start the animation sequence
-    const timer = setTimeout(() => {
+    const animationTimer = setTimeout(() => {
       setAnimationComplete(true);
       // Call onFinished after the animation fades out
       setTimeout(() => {
@@ -30,7 +40,15 @@ const NetflixPreloader: React.FC<NetflixPreloaderProps> = ({ onFinished }) => {
       }, 1000); // Wait for fade out animation
     }, 4000); // Total duration of the animation
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(soundTimer);
+      clearTimeout(animationTimer);
+      // Clean up audio
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+      }
+    };
   }, [onFinished]);
 
   return (
@@ -39,15 +57,8 @@ const NetflixPreloader: React.FC<NetflixPreloaderProps> = ({ onFinished }) => {
         animationComplete ? 'opacity-0' : 'opacity-100'
       }`}
     >
-      {/* Audio element for Netflix sound */}
-      <audio 
-        ref={audioRef} 
-        src="https://cdn.plyr.io/static/demo/Kishi_Bashi_-_It_All_Began_With_a_Burst.mp3"
-        preload="auto"
-      />
-      
+      {/* Netflix N-shaped container */}
       <div className="relative w-full max-w-md px-8">
-        {/* Netflix N-shaped container */}
         <div className="w-full h-24 md:h-32 relative overflow-hidden flex justify-center items-center">
           {/* Center line of the N */}
           <div className="absolute w-6 md:w-8 h-full bg-netflix-red transform skew-x-12 z-10 
