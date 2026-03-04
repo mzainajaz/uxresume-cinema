@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -7,29 +6,24 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import NetflixPreloader from "./components/NetflixPreloader";
+import AnyflowLoader from "./components/AnyflowLoader";
 
 const queryClient = new QueryClient();
 
 const App = () => {
-  const [showPreloader, setShowPreloader] = useState(true);
-  
-  const handlePreloaderFinished = () => {
-    setShowPreloader(false);
-  };
+  const [showLoader, setShowLoader] = useState(true);
 
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        {showPreloader ? (
-          <NetflixPreloader onFinished={handlePreloaderFinished} />
+        {showLoader ? (
+          <AnyflowLoader onFinished={() => setShowLoader(false)} />
         ) : (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>

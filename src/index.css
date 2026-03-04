@@ -1,62 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Netflix Sans';
-  src: url('https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Netflix Sans';
-  src: url('https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Md.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Netflix Sans';
-  src: url('https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Bd.woff2') format('woff2');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
 @layer base {
   :root {
-    --background: 0 0% 8%;
-    --foreground: 0 0% 98%;
-
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 85% 49%;
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 0 0% 14%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 70%;
-
-    --accent: 0 85% 49%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 84.2% 60.2%;
+    --background: 0 0% 4%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 82 100% 45%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 11%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 64%;
+    --accent: 82 100% 45%;
+    --accent-foreground: 0 0% 4%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 85% 49%;
-
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 82 100% 45%;
     --radius: 0.5rem;
   }
 }
@@ -66,79 +34,121 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-netflix-black text-netflix-light font-netflix-sans antialiased;
+  html {
+    scroll-behavior: smooth;
   }
 
-  /* Netflix-like scrollbar */
-  ::-webkit-scrollbar {
+  body {
+    @apply bg-anyflow-black text-anyflow-white font-inter-tight antialiased;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor-dot {
     width: 8px;
     height: 8px;
+    background: #9de500;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+    transition: width 0.2s ease, height 0.2s ease;
   }
 
+  .cursor-outline {
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid rgba(157, 229, 0, 0.5);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 99998;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+  }
+
+  .cursor-outline.cursor-hover {
+    width: 60px;
+    height: 60px;
+    border-color: rgba(157, 229, 0, 0.8);
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
   ::-webkit-scrollbar-track {
-    @apply bg-netflix-black;
+    background: #0a0a0a;
   }
-
   ::-webkit-scrollbar-thumb {
-    @apply bg-netflix-gray rounded-full;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-netflix-red;
+    background: #9de500;
+    border-radius: 2px;
   }
 }
 
 @layer components {
-  .netflix-container {
-    @apply max-w-full px-0 mx-auto;
+  .btn-lime {
+    @apply inline-flex items-center gap-2 bg-anyflow-lime text-anyflow-black font-inter-tight font-bold text-sm px-6 py-3 rounded-full transition-all duration-300 hover:bg-anyflow-lime-bright hover:scale-105;
   }
 
-  .netflix-row {
-    @apply relative px-4 md:px-8 mb-8;
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border border-white/20 text-anyflow-white font-inter-tight font-semibold text-sm px-6 py-3 rounded-full transition-all duration-300 hover:border-anyflow-lime hover:text-anyflow-lime;
   }
 
-  .netflix-card {
-    @apply bg-netflix-dark rounded overflow-hidden transition-all duration-300 relative shadow-lg;
+  .section-label {
+    @apply font-jakarta text-xs font-semibold tracking-widest uppercase text-anyflow-lime mb-4;
   }
 
-  .netflix-card:hover {
-    @apply animate-card-hover bg-netflix-card-hover z-10;
+  .af-container {
+    @apply max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20;
   }
 
-  .netflix-title {
-    @apply text-2xl md:text-3xl font-bold mb-2 text-netflix-light;
+  .af-divider {
+    @apply w-full h-px bg-white/10;
   }
 
-  .netflix-btn {
-    @apply bg-netflix-red text-netflix-light font-medium py-2 px-4 rounded transition-all duration-200 hover:bg-opacity-80;
+  .display-heading {
+    @apply font-bebas text-anyflow-white leading-none;
+    letter-spacing: -0.02em;
   }
 
-  .netflix-btn-outline {
-    @apply border border-netflix-light text-netflix-light font-medium py-2 px-4 rounded transition-all duration-200 hover:bg-netflix-light hover:bg-opacity-10;
+  /* Reveal wrapper for text animation */
+  .reveal-wrapper {
+    overflow: hidden;
+    display: inline-block;
   }
 
-  .netflix-gradient {
-    @apply absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-netflix-black to-transparent;
+  /* Marquee */
+  @keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .marquee-track {
+    display: inline-flex;
+    animation: marqueeScroll 24s linear infinite;
   }
 
-  .netflix-hero-gradient {
-    @apply absolute inset-0 bg-gradient-to-b from-netflix-black/70 via-netflix-black/30 to-netflix-black;
+  /* Noise texture overlay */
+  .noise::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
   }
 
-  .smooth-appear {
-    animation: smoothAppear 0.8s ease-out forwards;
-    opacity: 0;
+  /* Clip for loader text reveal */
+  .clip-reveal {
+    clip-path: inset(0 100% 0 0);
   }
-
-  @keyframes smoothAppear {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .clip-reveal.animate {
+    clip-path: inset(0 0% 0 0);
+    transition: clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
